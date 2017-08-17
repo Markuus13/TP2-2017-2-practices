@@ -15,5 +15,19 @@ RSpec.describe "Rock Paper Scissors" do
           to raise_error("NoSuchStrategyError")
       end
     end
+
+    context "when player's strategy are different from the other" do
+      it "returns the name and strategy of the winning player" do
+        expect(rps_game_winner([ [ "Kristen", "P" ], [ "Pam", "S" ] ])).
+          to match_array([ "Pam", "S" ])
+      end
+    end
+
+    context "when both players use the same strategy" do
+      it "return the name and strategy of first player" do
+        expect(rps_game_winner([ [ "Kristen", "P" ], [ "Pam", "P" ] ])).
+          to match_array(["Kristen", "P"])
+      end
+    end
   end
 end
