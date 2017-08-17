@@ -5,9 +5,7 @@ PLAYS = { "R" => 1, "P" => 2, "S" => 3 }
 
 def rps_game_winner(game)
   raise WrongNumberOfPlayersError unless game.length == 2
-  game.each do |move|
-    raise NoSuchStrategyError unless PLAYS.keys.include?(move.last)
-  end
+  game.each { |move| raise NoSuchStrategyError unless PLAYS.keys.include?(move.last) }
   first_move, second_move = game.map(&:last)
   first_player_wins = [-2,1]
   score = PLAYS[first_move] - PLAYS[second_move]
