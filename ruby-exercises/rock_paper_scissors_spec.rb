@@ -18,8 +18,8 @@ RSpec.describe "Rock Paper Scissors" do
 
     context "when player's strategy are different from the other" do
       it "returns the name and strategy of the winning player" do
-        expect(rps_game_winner([ [ "Kristen", "P" ], [ "Pam", "S" ] ])).
-          to match_array([ "Pam", "S" ])
+        expect(rps_game_winner([ [ "Kristen", "S" ], [ "Pam", "P" ] ])).
+          to match_array([ "Kristen", "S" ])
       end
     end
 
